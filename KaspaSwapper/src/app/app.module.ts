@@ -11,6 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import {MatDividerModule} from '@angular/material/divider'
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatDividerModule} from '@angular/material/divider'
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
