@@ -12,7 +12,7 @@ Nella prima pagina, l’utente sceglie in quale modalità utilizzare l’applica
 - Nel primo caso (Swap!), l’utente sceglie di iniziare le attività di scambio, dando per scontato che il backend e tutti gli strumenti utilizzati per lo scambio siano attivi e correttamente funzionanti;
 - Nel secondo caso (Check system diagnostics), l’utente sceglie aprire la finestra di diagnostica per verificare che tutti gli strumenti utilizzati per lo scambio siano attivi e correttamente funzionanti.
  
-LINK IMMAGINE
+![Image_1](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/01.png)
 
 In entrambi i casi, quando l’utente sceglie uno o l’altro percorso, la PWA visualizza una finestra con un pannello di navigazione sulla sinistra e un pannello principala sulla destra:
 - Nel caso di selezione del bottone "Swap!", la PWA seleziona automaticamente la tab "Swap market";
@@ -29,7 +29,7 @@ La PWA seleziona automaticamente la tab "Swap market" e visualizza la lista dei 
 - Volume minimo di scambio per singolo swap
 - Indirizzo onion completo del Swap provider
 
-LINK IMMAGINE
+![Image_2](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/02.png)
 
 La PWA chiede la lista aggiornata delle informazioni al backend ogni 5 secondi; se alcune informazioni vengono aggiornate, la PWA modifica solo quelle informazioni (per adattarsi ai tempi di refresh del backend).
 Nel caso in cui l'utente voglia forzare un refresh dei dati dai swap provider, clicca il tasto in alto a destra; la PWA forza quindi il backend a richiedere informazioni aggiornate a tutti i swap provider.
@@ -42,26 +42,27 @@ Quando l'utente clicca su una riga, la PWA entra automaticamente nella tab "New 
 
 L'utente seleziona il verso di scambio cliccando la freccia tra i due primi campi (in stile Uniswap); il default prevede che lo scambio sia da BTC (sopra) a KAS (sotto); se l'utente preme la freccia, i due campi si scambiano, BTC scende sotto e KAS sale sopra.
 
-LINK IMMAGINE
+![Image_3](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/03.png)
 
-L'utente inserisce la quantità si satoshi da scambiare in KAS e la PWA, dialogando in real time con il backend, fornisce:
+L'utente inserisce la quantità di satoshi da scambiare in KAS e la PWA, dialogando in real time con il backend, fornisce:
 - La quantità di KAS che il Swap provider selezionato invierà, a seconda della quantità di BTC che l'utente vuole scambiare;
 - La stima di controvalore in USD per ciascun lato dello scambio;
 - I dettagli del provider scelto.
 
+La PWA visualizza tutti i dettagli del Swap provider selezionato.
 Se l'utente vuole cambiare provider, clicca manualmente la tab "Swap market" e seleziona un altro provider.
 
 Se è tutto ok, l'utente clicca il bottone "Swap".
 
 La PWA genera un messagio di richiesta di conferma, che ha la funziona di double check. Se l'utente conferma, la PWA comunica l'ordine al backend e viene attivata la creazione dello swap.
 
-LINK IMMAGINE
+![Image_4](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/04.png)
 
 Una barra di caricamento appare sotto al bottone "Swap" durante la creazione della TX; non appena la TX viene inviata con successo (non ancora inclusa in un blocco), il backend lo comunica alla PWA, la quale sostituisce la barra di caricamento con un messaggio "Transazione inviata correttamente!".
 
 Qui ci sono un paio di esempi di come sono impostati gli elementi grafici della finestra di swap (Unstoppable Swaps e Uniswap):
 
-LINK IMMAGINE
+![Image_5](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/05.png)
 
 ## OPEN SWAPS
 L'utente può attivare in questo modo più swap, con swap provider diversi, a seconda della ncessità, delle condizioni di mercato e della disponibilità dei vari swap providers.
@@ -70,7 +71,7 @@ A questo punto, l'utente deve monitorare lo stato dei swap dato che, quando il S
 
 L'utente clicca quindi sulla tab "Open swaps" e accede alla finestra di controllo di tutti gli swap attivi.
 
-LINK IMMAGINE
+![Image_6](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/06.png)
 
 La lista visualizza le macro informazioni di ciascun swap attualmente aperto:
 - Timestamp della transazione di apertura del swap
@@ -97,11 +98,11 @@ La lista dei swap aperti è selezionabile e, quando l'utente seleziona uno swap,
 Ci sono 3 momenti in cui l'utente, oltre a visualizzare i dettagli dello swap, può intervenire in qualche modo:
 - Quando il singolo swap è in stato "Waiting for redeem", la PWA visualizza il bottone "Redeem"; l'utente lo clicca, la PWA genera un messaggio di conferma e, quando confermato, la PWA comunica al backend l'attivazione del processo di redeem; la PWA visualizza una barra di caricamento, fino a che la transazione non viene creata; quando la transazione è stata inviata, la PWA genera un messaggio che conferma all'utente il completamento dell'operazione di redeem.
 
-LINK IMMAGINE
+![Image_7](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/07.png)
 
 - Quando il singolo swap è in stato di "Swap completed" o "Swap deleted", la PWA visualizza il bottone "Clean swap"; quando l'utente clicca il bottone, la PWA genera un messaggio di conferma; alla conferma da parte dell'utente, la PWA chiama il backed, chiedendo di cancellare il swap selezionato dalla lista dei swap aperti.
 
-LINK IMMAGINE
+![Image_8](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/08.png)
 
 
 
