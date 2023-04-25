@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Tech specs
+/tech_specs/Tech_Specs.odp
+/tech_specs/old_specs
+
