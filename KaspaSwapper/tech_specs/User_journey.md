@@ -2,8 +2,8 @@
 
 Prima di commentare lo User Journey dell’applicazione, definiamo alcune informazioni generali rilevanti:
 
-- L’applicazione (d’ora in poi, chiamata PWA) inizialmente lavorerà in browser ma, successivamente, vorremmo aggiungere un “guscio” per semplificarne il deploy (ad esempio Electron);
-- La PWA rappresenta il front-end per permettere l’interazione con le operazioni di swap da parte dell’utente;
+- L’applicazione (d’ora in poi, chiamata PWA) inizialmente lavorerà in browser ma, successivamente, vorremmo aggiungere un “guscio” per semplificarne il l'esecuzione (ad esempio Electron);
+- La PWA rappresenta il l'interfaccia utente per permettere l’interazione con le operazioni di swap da parte dell’utente;
 - La PWA comunica con un backend attraverso chiamate REST API, per inviare e ricevere informazioni.
  
 ## Prima pagina 
@@ -15,46 +15,45 @@ Nella prima pagina, l’utente sceglie in quale modalità utilizzare l’applica
 ![Image_1](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/01.png)
 
 In entrambi i casi, quando l’utente sceglie uno o l’altro percorso, la PWA visualizza una finestra con un pannello di navigazione sulla sinistra e un pannello principala sulla destra:
-- Nel caso di selezione del bottone "Swap!", la PWA seleziona automaticamente la tab "Swap market";
-- Nel caso di selezione del bottone "Check system diagnostics", la PWA seleziona automaticamente la tab "System diagnostics"
+- Nel caso di selezione del bottone "Swap!", la PWA seleziona automaticamente la scheda "Swap market";
+- Nel caso di selezione del bottone "Check system diagnostics", la PWA seleziona automaticamente la scheda "System diagnostics"
 
-La composizione e le informazioni da visualizzare nella tab "System diagnostics" saranno analizzate successivamente; per ora, ci concentriamo nelle operazioni di Swap.
+La composizione e le informazioni da visualizzare nella scheda "System diagnostics" saranno analizzate successivamente; per ora, ci concentriamo nelle operazioni di Swap.
 Quando l'architettura sarà stabile a sufficienza, potremmo decidere di togliere questa prima schermata ed avviare la PWA direttamente nella visualizzazione con pannello di navigazione a sinistra e area dettagli a destra.
 
 ## SWAP MARKET
-La PWA seleziona automaticamente la tab "Swap market" e visualizza la lista dei swap provider disponibili, all'interno di una tabella che riporta le informazioni pricipali:
-- Swap provider ID (composizione dei primi 5 caratteri dell'indirizzo onion, un separatore e gli ultimi 5 caratteri dell'indirizzo onion)
+La PWA seleziona automaticamente la scheda "Swap market" e visualizza la lista degli swap provider disponibili all'interno di una tabella che riporta le seguenti informazioni pricipali:
+- Swap provider ID (si tratta di un codice alfa numerico composto da 2 parti: nella prima parte ci sono i primi 5 caratteri dell'indirizzo onion, seguito da un separatore, ed infine dagli ultimi 5 caratteri dell'inirizzo onion)
 - Prezzo di 1 KAS (in satoshi)
 - Prezzo di 1 BTC (in KAS)
 - Volume minimo di scambio per singolo swap
-- Indirizzo onion completo del Swap provider
+- Indirizzo onion completo dello Swap provider
 
 ![Image_2](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/02.png)
 
-La PWA chiede la lista aggiornata delle informazioni al backend ogni 5 secondi; se alcune informazioni vengono aggiornate, la PWA modifica solo quelle informazioni (per adattarsi ai tempi di refresh del backend).
-Nel caso in cui l'utente voglia forzare un refresh dei dati dai swap provider, clicca il tasto in alto a destra; la PWA forza quindi il backend a richiedere informazioni aggiornate a tutti i swap provider.
+La PWA aggiorna la lista ogni 5 secondi; se alcune informazioni vengono aggiornate, la PWA modifica solo quelle informazioni (per adattarsi ai tempi di refresh del backend).
+Nel caso in cui l'utente voglia forzare un refresh dei dati nella scheda, dovrà cliccare il tasto di ricarica in alto a destra.
 La PWA permette all'utente di ordinare le colonne cliccando il titolo della colonna per ordine crescente, cliccando nuovamente per ordine decrescente.
 
-La lista dei Swap provider è una lista selezionabile dall'utente.
-Quando l'utente clicca su una riga, la PWA entra automaticamente nella tab "New swap".
+La lista degli Swap provider è una lista interattiva, infatti quando l'utente clicca su una riga, la PWA seleziona lo swap provider di quella riga ed entra automaticamente nella sezione "New Swap" aggiornandone i dettagli.
 
 ## NEW SWAP
 
-L'utente seleziona il verso di scambio cliccando la freccia tra i due primi campi (in stile Uniswap); il default prevede che lo scambio sia da BTC (sopra) a KAS (sotto); se l'utente preme la freccia, i due campi si scambiano, BTC scende sotto e KAS sale sopra.
+L'utente può cambiare il verso della transazione cliccando la freccia tra i due primi campi (in stile Uniswap); il default prevede che lo scambio sia da BTC (sopra) a KAS (sotto); se l'utente preme la freccia, i due campi si scambiano, BTC scende sotto e KAS sale sopra.
+Per semplicità si usa il punto come separatore delle migliaia e la virgola come separatore delle subunità (decimi, centesimi, millesimi)
 
 ![Image_3](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/03.png)
 
 L'utente inserisce la quantità di satoshi da scambiare in KAS e la PWA, dialogando in real time con il backend, fornisce:
-- La quantità di KAS che il Swap provider selezionato invierà, a seconda della quantità di BTC che l'utente vuole scambiare;
-- La stima di controvalore in USD per ciascun lato dello scambio;
-- I dettagli del provider scelto.
+- La quantità di KAS che lo Swap provider selezionato invierà, a seconda della quantità di satoshi selezionati.
+- La stima in controvalore USD per ciascun lato dello scambio;
+- I dettagli del provider scelto (ID ed indirizzo onion).
 
-La PWA visualizza tutti i dettagli del Swap provider selezionato.
-Se l'utente vuole cambiare provider, clicca manualmente la tab "Swap market" e seleziona un altro provider.
+Se l'utente vuole cambiare provider, deve cliccare manualmente la scheda "Swap market" e seleziona un altro provider. I precedenti dati della scheda New swap saranno così sovrascritti dai dati del nuovo provider scelto.
 
 Se è tutto ok, l'utente clicca il bottone "Swap".
 
-La PWA genera un messagio di richiesta di conferma, che ha la funziona di double check. Se l'utente conferma, la PWA comunica l'ordine al backend e viene attivata la creazione dello swap.
+La PWA genera unq richiesta di conferma, che ha un ulteriore funzione di controllo. Se l'utente conferma, la PWA comunica l'ordine al backend e viene attivata la creazione dello swap.
 
 ![Image_4](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/04.png)
 
