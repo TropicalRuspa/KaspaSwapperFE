@@ -94,11 +94,6 @@ Lo stato di ciascun Swap evolve da:
 
 La lista dei swap aperti è selezionabile e, quando l'utente seleziona uno swap, la sezione con i dettagli dello swap viene popolata.
 
-Ci sono 3 momenti in cui l'utente, oltre a visualizzare i dettagli dello swap, può intervenire in qualche modo:
-- Quando il singolo swap è in stato "Waiting for redeem", la PWA visualizza il bottone "Redeem"; l'utente lo clicca, la PWA genera un messaggio di conferma e, quando confermato, la PWA comunica al backend l'attivazione del processo di redeem; la PWA visualizza una barra di caricamento, fino a che la transazione non viene creata; quando la transazione è stata inviata, la PWA genera un messaggio che conferma all'utente il completamento dell'operazione di redeem.
-
-![Image_7](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/07.png)
-
 - Quando il singolo swap è in stato di "Swap completed" o "Swap deleted", la PWA visualizza il bottone "Clean swap"; quando l'utente clicca il bottone, la PWA genera un messaggio di conferma; alla conferma da parte dell'utente, la PWA chiama il backed, chiedendo di cancellare il swap selezionato dalla lista dei swap aperti.
 
 ![Image_8](https://github.com/TropicalRuspa/KaspaSwapperFE/blob/master/KaspaSwapper/tech_specs/images/08.png)
