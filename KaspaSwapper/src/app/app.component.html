@@ -1,3 +1,4 @@
+<!--
 <mat-toolbar class="mat-elevation-z8">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
@@ -9,8 +10,9 @@
     </button>
     Responsive side navigation
 </mat-toolbar>
+-->
 
-<mat-sidenav-container>
+<mat-sidenav-container >
     <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav">
         <button routerLink="swap" mat-button class="menu-button">
             <mat-icon>insert_chart_outline</mat-icon>
@@ -25,13 +27,12 @@
             <span>Open Swap</span>
         </button>
 
+        <mat-divider></mat-divider>
+
         <button routerLink="settings" mat-button class="menu-button">
             <mat-icon>settings</mat-icon>
             <span>Settings</span>
         </button>
-
-        <mat-divider></mat-divider>
-
         <button routerLink="check" mat-button class="menu-button">
             <mat-icon>help</mat-icon>
             <span>System diagnostic</span>
