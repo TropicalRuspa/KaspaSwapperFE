@@ -1,1 +1,45 @@
-<router-outlet></router-outlet>
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Responsive side navigation
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav">
+        <button routerLink="swap" mat-button class="menu-button">
+            <mat-icon>insert_chart_outline</mat-icon>
+            <span>Swap market</span>
+        </button>
+        <button routerLink="new_swap" mat-button class="menu-button">
+            <mat-icon>fiber_new</mat-icon>
+            <span>New Swap</span>
+        </button>
+        <button routerLink="open_swap" mat-button class="menu-button">
+            <mat-icon>open_in_new</mat-icon>
+            <span>Open Swap</span>
+        </button>
+
+        <button routerLink="settings" mat-button class="menu-button">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button routerLink="check" mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>System diagnostic</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+          <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

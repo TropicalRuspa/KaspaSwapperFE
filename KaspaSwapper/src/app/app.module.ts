@@ -11,12 +11,25 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import {MatDividerModule} from '@angular/material/divider'
+import {MatDialog, MatDialogModule} from '@angular/material/dialog'
 import {LayoutModule} from '@angular/cdk/layout';
+import { StartModalComponent } from './start-modal/start-modal.component';
+import { CheckSystemDiagnosisComponent } from './check-system-diagnosis/check-system-diagnosis.component';
+import { SwapKaspaComponent } from './swap-kaspa/swap-kaspa.component';
+import { NewSwapKaspaComponent } from './new-swap-kaspa/new-swap-kaspa.component';
+import { OpenSwapKaspaComponent } from './open-swap-kaspa/open-swap-kaspa.component';
+import { SettingsKaspaComponent } from './settings-kaspa/settings-kaspa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartKaspaComponent
+    StartKaspaComponent,
+    StartModalComponent,
+    CheckSystemDiagnosisComponent,
+    SwapKaspaComponent,
+    NewSwapKaspaComponent,
+    OpenSwapKaspaComponent,
+    SettingsKaspaComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +42,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    LayoutModule
+    LayoutModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
