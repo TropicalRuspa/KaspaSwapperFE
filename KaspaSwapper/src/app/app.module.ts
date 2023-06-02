@@ -19,6 +19,12 @@ import { SwapKaspaComponent } from './swap-kaspa/swap-kaspa.component';
 import { NewSwapKaspaComponent } from './new-swap-kaspa/new-swap-kaspa.component';
 import { OpenSwapKaspaComponent } from './open-swap-kaspa/open-swap-kaspa.component';
 import { SettingsKaspaComponent } from './settings-kaspa/settings-kaspa.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatSortModule} from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,13 @@ import { SettingsKaspaComponent } from './settings-kaspa/settings-kaspa.componen
     MatIconModule,
     MatDividerModule,
     LayoutModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatSortModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
