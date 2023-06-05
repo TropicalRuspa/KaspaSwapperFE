@@ -1,6 +1,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            <button (click)="aggiornaDati()" mat-button>
+                <mat-icon>autorenew</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="row">        
+        <div class="col-12">
             <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8">
                 <ng-container matColumnDef="swapProviderId">
                     <th mat-header-cell mat-sort-header *matHeaderCellDef>Swap provider id</th>

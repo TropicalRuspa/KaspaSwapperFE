@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwapMarket } from '../model/swap-market-model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { KaspaMarketService } from '../service/kaspa-market.service';
 
 @Component({
   selector: 'app-swap-kaspa',
@@ -9,6 +10,10 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./swap-kaspa.component.scss']
 })
 export class SwapKaspaComponent implements OnInit{
+
+
+
+
   displayedColumns: string[] = [
     'swapProviderId',
     'kasPrice',
@@ -47,6 +52,10 @@ export class SwapKaspaComponent implements OnInit{
 
   dataSource = new MatTableDataSource(this.data);
 
+  constructor(protected servizioKaspaMarket:KaspaMarketService){
+
+  }
+
   ngOnInit(): void {
     this.data.push({
       swapProviderId:'test-id pushed',
@@ -63,6 +72,15 @@ export class SwapKaspaComponent implements OnInit{
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  aggiornaDati(){
+    this.servizioKaspaMarket.aggiornaDati().subscribe(
+      arg => {
+        console.log("MADONNA CANE CI FACCIO QUALCOSA CON LA RESPONSE DEL SERVIZIO")
+      }
+      );
+    
   }
 
 }
