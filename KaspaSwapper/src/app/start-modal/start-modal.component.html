@@ -1,8 +1,15 @@
-<h1 mat-dialog-title>Kaspa Swap</h1>
-<div mat-dialog-content>
- Welcome to kaspa swap
-</div>
-<div mat-dialog-actions>
-  <button mat-button  [mat-dialog-close]="'swap'">Swap</button>
-  <button mat-button [mat-dialog-close]="'check'">Check system diagnostic</button>
+<div class="background">
+
+  <h1 mat-dialog-title>Kaspa Swapper</h1>
+  <div mat-dialog-content class="mat-dialog-content">
+    <p>Welcome to Kaspa Swapper,</p>
+    <p>You can either visit the swap market or you can check if the backend is working properly</p>
+  </div>
+  <div class="horizontal-rule"></div>
+
+
+  <div mat-dialog-actions class="mat-dialog-actions">
+    <button mat-button  [mat-dialog-close]="'swap'">Swap</button>
+    <button mat-button [mat-dialog-close]="'check'">Check system diagnostic</button>
+  </div>
 </div>
