@@ -1,5 +1,5 @@
-<!--
-<mat-toolbar class="mat-elevation-z8">
+
+<mat-toolbar class="mat-elevation-z8 header">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
@@ -8,12 +8,16 @@
             close
         </mat-icon>
     </button>
-    Responsive side navigation
+    <h1>
+
+        Kaspa Atomic Swap
+    </h1>
 </mat-toolbar>
--->
+
 
 <mat-sidenav-container >
     <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav">
+
         <button routerLink="swap" mat-button class="menu-button">
             <mat-icon>insert_chart_outline</mat-icon>
             <span>Swap market</span>

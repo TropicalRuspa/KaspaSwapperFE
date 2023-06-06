@@ -1,3 +1,90 @@
-mat-icon{
-    color: black;
+*{
+  font-weight: 800;
+}
+//Contenitore esterno
+.container-fluid{
+    display: flex;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.col-12, .row{
+  width: 100%;
+  height: 100%;
+}
+
+//Body della tabella
+#table{
+    border-radius: 25px;
+    display: flex;
+    background-color: #6fc7ba;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+//Rows della tabella
+tr{
+  display: block;
+  border-radius: 25px !important;
+  width: 49vw !important;
+  height: 100%;
+}
+//Header row della tabella
+#radius{
+  background-color: #e79c46;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 25x !important;
+  transform: scale(1.1);
+  margin-top: -50px;
+
+}
+//This id styles all the rows excluding the main one
+#swap-row{
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.25);
+  position: relative;
+}
+
+//whenever you hover on a row, the row expands end drows the shadow
+#swap-row:hover{
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+//td regulates the single item in the row
+td{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: transparent;
+  margin-right: 5px;
+  width: 150px;
+
+
+}
+
+//necessary for the top row to be separed from the rest of the rows
+
+::ng-deep .mat-mdc-table thead,
+::ng-deep .mat-mdc-cell,
+
+::ng-deep .mat-mdc-header-row,
+::ng-deep .mat-mdc-row{
+ display: inline-block;
+ margin-bottom: 10px;
 }

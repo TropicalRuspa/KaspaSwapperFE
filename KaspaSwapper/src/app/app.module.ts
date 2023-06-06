@@ -25,7 +25,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatSortModule} from '@angular/material/sort';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,8 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatCardModule,
     MatSortModule,
-    CommonModule,
-    HttpClientModule
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

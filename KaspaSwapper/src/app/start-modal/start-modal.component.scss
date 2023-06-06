@@ -1,0 +1,57 @@
+.background{
+  background-color: #6fc7ba;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.horizontal-rule{
+  height: 1px;
+  width: 90%;
+  background-color: white;
+  padding: 0px 5px;
+}
+button{
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 25px !important;
+  margin: 10px 0;
+  background-color: #6fc7ba;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.4);
+}
+button:hover{
+  background-color: #68b9ad !important;
+  box-shadow: none;
+}
+.mat-dialog-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+p, h1{
+  text-align: center;
+  font-weight: 800;
+  margin-left: -10px;
+}
+.mat-dialog-actions{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+
+}
+::ng-deep .cdk-overlay-container, ::ng-deep .cdk-overlay-dark-backdrop{
+  background-color: rgba(7, 7, 7, 0.233);
+
+}
+::ng-deep .mat-mdc-dialog-container, ::ng-deep .mdc-dialog__surface {
+  --mdc-dialog-container-color: none;
+  --mdc-dialog-container-elevation: none
+}
