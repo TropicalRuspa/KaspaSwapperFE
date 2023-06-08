@@ -6,27 +6,30 @@ import { SwapKaspaComponent } from './swap-kaspa/swap-kaspa.component';
 import { NewSwapKaspaComponent } from './new-swap-kaspa/new-swap-kaspa.component';
 import { OpenSwapKaspaComponent } from './open-swap-kaspa/open-swap-kaspa.component';
 import { SettingsKaspaComponent } from './settings-kaspa/settings-kaspa.component';
+import { HttpClient } from '@angular/common/http';
+import { KaspaMarketService } from './service/kaspa-market.service';
 
 const routes: Routes = [
-  { 
-    path:  'swap',
-    component:  SwapKaspaComponent,
+  {
+    path: 'swap',
+    component: SwapKaspaComponent,
+    providers: [{ provide: KaspaMarketService, useClass: KaspaMarketService, deps: [HttpClient] }]
   },
-  { 
-    path:  'check',
-    component:  CheckSystemDiagnosisComponent,
+  {
+    path: 'check',
+    component: CheckSystemDiagnosisComponent,
   },
-  { 
-    path:  'new_swap',
-    component:  NewSwapKaspaComponent,
+  {
+    path: 'new_swap',
+    component: NewSwapKaspaComponent,
   },
-  { 
-    path:  'open_swap',
-    component:  OpenSwapKaspaComponent,
+  {
+    path: 'open_swap',
+    component: OpenSwapKaspaComponent,
   },
-  { 
-    path:  'settings',
-    component:  SettingsKaspaComponent,
+  {
+    path: 'settings',
+    component: SettingsKaspaComponent,
   }
 ];
 

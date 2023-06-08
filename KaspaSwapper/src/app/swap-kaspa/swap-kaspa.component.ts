@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwapMarket } from '../model/swap-market-model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { KaspaMarketService } from '../service/kaspa-market.service';
 
 @Component({
   selector: 'app-swap-kaspa',
@@ -9,6 +10,10 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./swap-kaspa.component.scss']
 })
 export class SwapKaspaComponent implements OnInit{
+
+
+
+
   displayedColumns: string[] = [
     'swapProviderId',
     'kasPrice',
@@ -17,28 +22,28 @@ export class SwapKaspaComponent implements OnInit{
     'address'
   ];
   data:SwapMarket[] = [{
-    swapProviderId:'fnkfj°lfkgh',
+    swapProviderId:'test-id',
     btcPrice:1000,
     kasPrice:134,
     minAmount:10,
     address:'testaddress'
   },
   {
-    swapProviderId:'fnkfj°lfkgh',
+    swapProviderId:'test-id1',
     btcPrice:10001,
     kasPrice:1344,
     minAmount:103,
     address:'testaddress1'
   },
   {
-    swapProviderId:'fnkfj°lfkgh',
+    swapProviderId:'test-id2',
     btcPrice:1023,
     kasPrice:14234,
     minAmount:10123,
-    address:'llamanymityx4fi3l6x2gyzmtmgxjyqyorj9qsb5r543izcwymlead.onion'
+    address:'testaddress2'
   },
   {
-    swapProviderId:'fnkfj°lfkgh',
+    swapProviderId:'test-id3',
     btcPrice:10132,
     kasPrice:134232,
     minAmount:99,
@@ -47,9 +52,13 @@ export class SwapKaspaComponent implements OnInit{
 
   dataSource = new MatTableDataSource(this.data);
 
+  constructor(protected servizioKaspaMarket:KaspaMarketService){
+
+  }
+
   ngOnInit(): void {
     this.data.push({
-      swapProviderId:'fnkfj°lfkgh',
+      swapProviderId:'test-id pushed',
       btcPrice:13,
       kasPrice:9999,
       minAmount:1,
@@ -63,6 +72,15 @@ export class SwapKaspaComponent implements OnInit{
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  aggiornaDati(){
+    this.servizioKaspaMarket.aggiornaDati().subscribe(
+      arg => {
+        console.log("MADONNA CANE CI FACCIO QUALCOSA CON LA RESPONSE DEL SERVIZIO")
+      }
+      );
+
   }
 
 }

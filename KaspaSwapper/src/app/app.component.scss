@@ -1,14 +1,17 @@
+
 mat-toolbar {
     background: #6fc7ba;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 mat-sidenav {
     margin: 16px;
     width: 230px;
+    height: 90vh;
     border-right: none;
     background: #6fc7ba;
     color: white;
@@ -18,7 +21,7 @@ mat-sidenav {
 }
 
 .content {
-    height: calc(100vh - 33px);
+    height: 90vh;
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
@@ -33,7 +36,8 @@ mat-sidenav {
 
 mat-sidenav-container {
 
-    height: calc(100vh);
+    height: calc(94vh);
+    overflow: hidden;
 }
 mat-divider {
     margin-top: 16px;
@@ -59,4 +63,8 @@ img{
 }
 span{
     font-weight: 600;
+}
+
+.mat-elevation-z8{
+  overflow: hidden !important;
 }
